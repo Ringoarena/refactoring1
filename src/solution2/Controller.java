@@ -15,7 +15,12 @@ public class Controller {
     }
 
     private boolean isDouble(String input) {
-        return input.matches("\\d+(\\.\\d*)?");
+        try {
+            Double.valueOf(input);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 
     public void handleInput(String input) {
